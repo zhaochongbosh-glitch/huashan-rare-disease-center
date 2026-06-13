@@ -17,6 +17,7 @@
 - `mdt.html` MDT 申请说明
 - `diseases.html` 疾病知识库
 - `research.html` 临床研究
+- `publications.html` 研究成果，展示 PubMed 署名单位发表文章
 - `policy.html` 政策与医保
 - `news.html` 新闻科普
 - `contact.html` 联系我们

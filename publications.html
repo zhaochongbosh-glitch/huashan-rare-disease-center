@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>研究成果 | 华山医院罕见病中心</title>
+    <meta name="description" content="华山医院罕见病中心研究成果页面，展示 PubMed 收录的中心署名单位发表文章。">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="topbar"><div class="topbar-inner"><span>研究成果数据来自 PubMed，中文摘要待后续 OpenAI API 翻译并人工复核后发布。</span><a href="research.html">查看临床研究</a></div></div>
+      <div class="nav-inner">
+        <a class="brand" href="index.html"><span class="brand-mark">HS</span><span><strong>华山医院罕见病中心</strong><span>Huashan Rare Disease Center</span></span></a>
+        <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">≡</button>
+        <nav class="main-nav" aria-label="主导航">
+          <a href="index.html">首页</a><a href="about.html">中心介绍</a><a href="visit.html">我要看病</a><a href="team.html">专家 MDT</a><a href="diseases.html">疾病知识库</a><a href="research.html">临床研究</a><a class="active" href="publications.html">研究成果</a><a href="policy.html">政策医保</a><a href="news.html">新闻科普</a><a href="contact.html">联系我们</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero">
+        <div class="container page-title">
+          <div class="breadcrumb"><a href="index.html">首页</a> / 研究成果</div>
+          <h1>研究成果</h1>
+          <p>展示 PubMed 中作者署名单位包含 Huashan Rare Disease Center 或 Huashan Rare Disease Centre 的研究文章，便于患者、医生、研究者和合作方了解中心公开发表成果。</p>
+        </div>
+      </section>
+      <section class="section alt" id="pubmed-publications">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">PubMed</p>
+              <h2>PubMed 发表文章</h2>
+              <p id="publication-summary">正在加载 PubMed 文章数据。检索策略限定为作者署名单位包含 Huashan Rare Disease Center 或 Huashan Rare Disease Centre。</p>
+            </div>
+            <a class="btn" href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Huashan+Rare+Disease+Center%22%5BAffiliation%5D+OR+%22Huashan+Rare+Disease+Centre%22%5BAffiliation%5D" target="_blank" rel="noreferrer">打开 PubMed 检索</a>
+          </div>
+          <div class="search-row">
+            <input id="publication-search" type="search" placeholder="搜索 PMID、题目、作者、期刊、单位或摘要" autocomplete="off">
+            <button class="btn" type="button" id="publication-reset">重置</button>
+          </div>
+          <p class="result-count" id="publication-result-count"></p>
+          <div class="publication-list" id="publication-list"></div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="footer-bottom"><div class="container">研究成果数据来自 PubMed；中文摘要翻译上线前需完成医学审核。</div></div></footer>
+    <script src="data/site-data.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

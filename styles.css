@@ -126,6 +126,8 @@ img {
 .main-nav {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 4px;
   font-size: 15px;
 }
