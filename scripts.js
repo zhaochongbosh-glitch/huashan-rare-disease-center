@@ -233,37 +233,23 @@ if (mdtDirectoryList && mdtDirectorySummary) {
 }
 
 const pediatricScopeList = document.querySelector("#pediatric-scope-list");
-const pediatricSpecialList = document.querySelector("#pediatric-special-list");
 const pediatricSummary = document.querySelector("#pediatric-summary");
 const pediatricSearch = document.querySelector("#pediatric-search");
 const pediatricCampusFilter = document.querySelector("#pediatric-campus-filter");
-const pediatricOpenFilter = document.querySelector("#pediatric-open-filter");
 const pediatricReset = document.querySelector("#pediatric-reset");
 const pediatricResultCount = document.querySelector("#pediatric-result-count");
 
-if (pediatricScopeList && pediatricSpecialList && pediatricSummary) {
+if (pediatricScopeList && pediatricSummary) {
   let pediatricRecords = [];
   let activePediatricQuery = "";
   let activePediatricCampus = "总院";
-  let activePediatricOpen = "all";
-
-  const isCampusOpen = (campus) =>
-    ["outpatient", "emergency", "inpatient"].some((key) => {
-      const value = String(campus[key] || "");
-      return value && value !== "未开展" && value !== "-";
-    });
 
   const renderPediatricScope = () => {
     const query = activePediatricQuery.trim().toLowerCase();
     const filtered = pediatricRecords.filter((record) => {
-      const campus = record.campuses[activePediatricCampus] || {};
       const haystack = `${record.category} ${record.department} ${record.pediatricSubject}`.toLowerCase();
       const matchesQuery = !query || haystack.includes(query);
-      const matchesOpen =
-        activePediatricOpen === "all" ||
-        (activePediatricOpen === "open" && isCampusOpen(campus)) ||
-        (activePediatricOpen === "qualified" && campus.qualification === "√");
-      return matchesQuery && matchesOpen;
+      return matchesQuery;
     });
 
     if (pediatricResultCount) {
@@ -284,9 +270,6 @@ if (pediatricScopeList && pediatricSpecialList && pediatricSummary) {
             <h3>${escapeHtml(record.pediatricSubject)}</h3>
             <div class="query-meta">
               <span>资质<strong>${escapeHtml(campus.qualification || "-")}</strong></span>
-              <span>门诊<strong>${escapeHtml(campus.outpatient || "-")}</strong></span>
-              <span>急诊<strong>${escapeHtml(campus.emergency || "-")}</strong></span>
-              <span>住院<strong>${escapeHtml(campus.inpatient || "-")}</strong></span>
             </div>
           </article>
         `;
@@ -297,23 +280,12 @@ if (pediatricScopeList && pediatricSpecialList && pediatricSummary) {
   loadData("data/pediatric-scope.json", "pediatricScope")
     .then((payload) => {
       pediatricRecords = Array.isArray(payload.records) ? payload.records : [];
-      const specialSettings = Array.isArray(payload.specialSettings) ? payload.specialSettings : [];
-      pediatricSummary.textContent = `共提取 ${pediatricRecords.length} 条未成年患者接诊资质记录、${specialSettings.length} 条骨科特殊设置。请选择院区后查询，年龄字段沿用原表口径。`;
+      pediatricSummary.textContent = `共提取 ${pediatricRecords.length} 条未成年患者接诊资质记录。请选择院区后查询。`;
       renderPediatricScope();
-      pediatricSpecialList.innerHTML = specialSettings
-        .map((item) => `
-          <tr>
-            <td>${escapeHtml(item.clinicOrDoctor)}</td>
-            <td>${escapeHtml(item.requestedSetting)}</td>
-            <td>${escapeHtml(item.publishedSetting)}</td>
-          </tr>
-        `)
-        .join("");
     })
     .catch(() => {
       pediatricSummary.textContent = "未能加载未成年患者资质数据。";
       pediatricScopeList.innerHTML = `<div class="empty-state">${localhostHint("visit.html")}</div>`;
-      pediatricSpecialList.innerHTML = `<tr><td colspan="3"><div class="empty-state">${localhostHint("visit.html")}</div></td></tr>`;
     });
 
   pediatricSearch?.addEventListener("input", (event) => {
@@ -326,18 +298,11 @@ if (pediatricScopeList && pediatricSpecialList && pediatricSummary) {
     renderPediatricScope();
   });
 
-  pediatricOpenFilter?.addEventListener("change", (event) => {
-    activePediatricOpen = event.target.value;
-    renderPediatricScope();
-  });
-
   pediatricReset?.addEventListener("click", () => {
     activePediatricQuery = "";
     activePediatricCampus = "总院";
-    activePediatricOpen = "all";
     if (pediatricSearch) pediatricSearch.value = "";
     if (pediatricCampusFilter) pediatricCampusFilter.value = "总院";
-    if (pediatricOpenFilter) pediatricOpenFilter.value = "all";
     renderPediatricScope();
   });
 }
