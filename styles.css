@@ -466,6 +466,101 @@ h1 {
   font-size: 13px;
 }
 
+.about-hero {
+  padding: 44px 0;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 42px;
+  align-items: center;
+}
+
+.about-logo-card {
+  margin: 0;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-align: center;
+  background: rgba(255, 255, 255, .82);
+  box-shadow: var(--shadow);
+}
+
+.about-logo-card img {
+  width: min(220px, 100%);
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.about-logo-card figcaption {
+  margin-top: 12px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.metric-card {
+  min-height: 116px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.metric-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--red);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.metric-card span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.about-story {
+  display: grid;
+  gap: 14px;
+}
+
+.feature-panel {
+  align-self: stretch;
+  display: grid;
+  align-content: center;
+}
+
+.notice-card {
+  padding: 20px;
+  border: 1px solid #e8d5b8;
+  border-radius: 8px;
+  background: #fff9ef;
+}
+
+.notice-card strong {
+  color: var(--red);
+}
+
+.source-list {
+  display: grid;
+  gap: 10px;
+}
+
+.source-list a {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--blue);
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -911,6 +1006,18 @@ h1 {
 }
 
 @media (max-width: 980px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-logo-card {
+    max-width: 320px;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .control-row,
   .query-card-grid {
     grid-template-columns: 1fr 1fr;
@@ -918,6 +1025,14 @@ h1 {
 }
 
 @media (max-width: 640px) {
+  .metric-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metric-card strong {
+    font-size: 24px;
+  }
+
   .control-row,
   .query-card-grid,
   .query-meta {
