@@ -1,4 +1,4 @@
-# Huashan Rare Disease Center 官网原型
+# 华山医院罕见病中心（Huashan Rare Disease Center）官网原型
 
 这是第一版静态官网原型，重点验证信息架构和合规边界：
 
