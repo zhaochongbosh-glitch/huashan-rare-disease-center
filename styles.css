@@ -470,30 +470,26 @@ h1 {
   padding: 44px 0;
 }
 
-.about-hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr);
-  gap: 42px;
-  align-items: center;
+.about-hero-copy {
+  max-width: 960px;
 }
 
-.about-logo-card {
+.founding-photo-card {
   overflow: hidden;
-  margin: 0;
+  margin: 18px 0 0;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
-  box-shadow: var(--shadow);
 }
 
-.about-logo-card img {
+.founding-photo-card img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
-.about-logo-card figcaption {
+.founding-photo-card figcaption {
   padding: 12px 14px;
   color: var(--blue);
   font-size: 14px;
@@ -1047,14 +1043,6 @@ h1 {
 }
 
 @media (max-width: 980px) {
-  .about-hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-logo-card {
-    max-width: none;
-  }
-
   .center-video {
     grid-template-columns: 1fr;
   }
