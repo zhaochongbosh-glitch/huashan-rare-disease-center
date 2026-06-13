@@ -1,0 +1,267 @@
+{
+  "metadata": {
+    "sourceFile": "C:\\Users\\zhaochob\\Downloads\\罕见病网站门诊提供材料\\附件-1 全院区（罕见病）MDT目录.docx",
+    "updatedAt": "2026-06-12",
+    "notes": "由附件 1 提取。线上预约字段按原表“✓/无”转换。"
+  },
+  "campuses": [
+    {
+      "name": "总院",
+      "teamCount": 23,
+      "teams": [
+        {
+          "no": "1",
+          "name": "变态反应MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "2",
+          "name": "垂体病MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "3",
+          "name": "头颈肿瘤MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "4",
+          "name": "肺癌及免疫治疗相关不良反应MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "5",
+          "name": "多重耐药菌感染MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "6",
+          "name": "静脉血栓栓塞症及肺血管病MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "7",
+          "name": "难治性高血压诊疗MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "8",
+          "name": "乳腺癌脑转移MDT（2025）",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "9",
+          "name": "综合癫痫MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "10",
+          "name": "肥胖MDT（2024）",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "11",
+          "name": "甲状腺病及甲状腺眼病MDT（2025）",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "12",
+          "name": "肾移植相关感染性疾病MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "13",
+          "name": "糖尿病神经痛MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "14",
+          "name": "胃良恶性肿瘤MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "15",
+          "name": "复杂疑难风湿免疫MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "16",
+          "name": "疑难复杂肝移植相关疾病MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "17",
+          "name": "淋巴及浆细胞MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "18",
+          "name": "局部进展直肠癌和晚期大肠癌MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "19",
+          "name": "神经系统自身免疫病与感染疾病MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "20",
+          "name": "贫血MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "21",
+          "name": "疑难感染病与疑难肝病MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "22",
+          "name": "急诊多系统损伤MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "23",
+          "name": "胸部肿瘤MDT（2025）",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        }
+      ]
+    },
+    {
+      "name": "虹桥院区",
+      "teamCount": 9,
+      "teams": [
+        {
+          "no": "1",
+          "name": "颅内生殖细胞肿瘤MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "2",
+          "name": "脑血管病MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "3",
+          "name": "脊髓性肌萎缩症(SMA) MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "4",
+          "name": "运动障碍神经调控MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "5",
+          "name": "神经肌肉-足踝畸形MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "6",
+          "name": "脊柱脊髓疑难病例 MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "7",
+          "name": "颅底肿瘤MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "8",
+          "name": "神经遗传代谢MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "9",
+          "name": "神经肿瘤MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        }
+      ]
+    },
+    {
+      "name": "宝山院区",
+      "teamCount": 6,
+      "teams": [
+        {
+          "no": "1",
+          "name": "颅内占位性病变MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "2",
+          "name": "淋巴瘤",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "3",
+          "name": "肺癌-脑(脊髓膜）转移MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "4",
+          "name": "儿童神经内科MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        },
+        {
+          "no": "5",
+          "name": "甲状腺疾病MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        },
+        {
+          "no": "6",
+          "name": "黄疸疾病MDT",
+          "onlineBooking": false,
+          "onlineBookingLabel": "暂未开放线上预约"
+        }
+      ]
+    },
+    {
+      "name": "浦东院区",
+      "teamCount": 1,
+      "teams": [
+        {
+          "no": "1",
+          "name": "呼吸康复MDT",
+          "onlineBooking": true,
+          "onlineBookingLabel": "支持线上预约"
+        }
+      ]
+    }
+  ]
+}

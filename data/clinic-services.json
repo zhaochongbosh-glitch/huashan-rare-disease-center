@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "schemaVersion": "0.1.0",
+    "updatedAt": "2026-06-12",
+    "sourceDepartment": "门办确认资料",
+    "notes": "附件 1 已提取为 data/mdt-directory.json；附件 2 已提取为 data/pediatric-scope.json；附件 3 已复制到 assets/floorplans 并生成 data/floorplans.json。"
+  },
+  "officialLinks": {
+    "hospitalHome": "https://www.huashan.org.cn/",
+    "appointmentHome": "https://mzfwh.huashan.org.cn/home/index",
+    "internetHospital": "https://wxhlw.huashan.org.cn/",
+    "cloudService": "https://fwcs.linkingcloud.cn/Account/Loginin/294ae063-d996-48fe-a821-bd06cb154722?nextUrl=https%3a%2f%2ffwcs.linkingcloud.cn%2fapp%2fdcp%2findex.html%23%2fchat%2findex",
+    "suspensionQuery": "https://mzfwh.huashan.org.cn/appointment/scheduling",
+    "traffic": "https://mzfwh.huashan.org.cn/navigation/traffic",
+    "contactRules": "https://mzfwh.huashan.org.cn/doctor/reserverule",
+    "rareDiseaseAppointment": "https://mzfwh.huashan.org.cn/appointment/hanjianbing?type=1",
+    "mdtOnline": "https://mzfwh.huashan.org.cn/accurate/home",
+    "registrationCampus": "https://mzfwh.huashan.org.cn/guahao/campus"
+  },
+  "outpatient": {
+    "hours": {
+      "morning": "8:00-11:30",
+      "afternoon": "13:30-16:30"
+    },
+    "supportsInternetHospital": true,
+    "supportsFollowupMedicationReportAndOnlineFollowup": true,
+    "clinicTypeUrl": "https://mzfwh.huashan.org.cn/doctor/doctordepartment?pay=1&channel=py",
+    "campuses": [
+      {
+        "name": "总院",
+        "url": "https://mzfwh.huashan.org.cn/doctor/doctordepartment?pay=1&channel=py"
+      },
+      {
+        "name": "西院",
+        "url": "https://mzfwh.huashan.org.cn/doctor/doctordepartment?hospitalid=208&channel=py"
+      },
+      {
+        "name": "东院",
+        "url": "https://mzfwh.huashan.org.cn/doctor/doctordepartment?hospitalid=209&channel=py"
+      },
+      {
+        "name": "宝山院区",
+        "url": "https://mzfwh.huashan.org.cn/doctor/doctordepartment?hospitalid=218&channel=py"
+      },
+      {
+        "name": "江苏路院区",
+        "url": "https://mzfwh.huashan.org.cn/doctor/doctordepartment?hospitalid=17000&channel=py"
+      }
+    ]
+  },
+  "patientRouting": {
+    "suspectedRareDisease": "罕见病专属入口",
+    "externalDiagnosis": "罕见病专属入口",
+    "followup": "复诊患者走原专科",
+    "children": "详见附件 2 华山医院未成年患者接诊资质"
+  },
+  "materials": {
+    "firstVisit": [
+      "患者本人身份证",
+      "既往本院及外院门诊病史",
+      "曾住院患者的出院小结（华山和/或外院）、病理报告或穿刺报告",
+      "既往 CT、磁共振、X 光、PET-CT、肌电图、脑电图等所有影像学资料",
+      "按时间顺序排列的化验结果（如血液、尿液等）",
+      "其他免疫检查结果、基因检测结果等",
+      "目前服用的药物名称和剂量等所有疾病相关材料"
+    ],
+    "firstVisitNotice": "需完整提交全部资料，影像资料务必同时携带胶片、纸质报告、原始光盘，仅报告单不予受理。",
+    "followup": [
+      "患者本人身份证",
+      "上一次本院 MDT 会诊记录、诊疗方案",
+      "本次间隔期内新做化验、影像资料、出院小结、病理（或穿刺）报告、近期本院或外院就诊病史记录、用药记录",
+      "近期病情变化及新发症状说明"
+    ],
+    "mdt": [
+      "患者本人身份证",
+      "既往本院及外院门诊病史",
+      "曾住院患者的出院小结（华山和/或外院）、病理报告或穿刺报告",
+      "既往 CT、磁共振、X 光、PET-CT、肌电图、脑电图等所有影像学资料",
+      "按时间顺序排列的化验结果（如血液、尿液等）",
+      "其他免疫检查结果、基因检测结果等",
+      "目前服用的药物名称和剂量等所有疾病相关材料"
+    ]
+  },
+  "mdtApplication": {
+    "hasFormalMdtClinic": true,
+    "formalName": "详见 data/mdt-directory.json 全院区（罕见病）MDT目录",
+    "onlineEntry": "https://mzfwh.huashan.org.cn/accurate/home",
+    "channels": [
+      {
+        "name": "专科医生推荐",
+        "scope": "首选，全 39 支团队通用",
+        "steps": [
+          "患者挂对应专科门诊，医生评估符合条件后开具 MDT 申请",
+          "前往对应院区 MDT 受理点",
+          "资料齐全后 2 个工作日内完成审核，短信通知结果",
+          "按通知时间提前 30 分钟到院候诊"
+        ]
+      },
+      {
+        "name": "公众号线上申请",
+        "scope": "仅开放线上权限的团队可用",
+        "steps": [
+          "关注“复旦大学附属华山医院”公众号，进入门诊服务，多学科联合门诊",
+          "区分初诊/复诊，上传电子版资料提交审核",
+          "初诊 2 个工作日、复诊 1 个工作日完成审核",
+          "审核通过后线上挂号，按预约时间就诊",
+          "公众号设罕见病专属快捷预约入口"
+        ]
+      },
+      {
+        "name": "现场直接申请",
+        "scope": "所有团队通用",
+        "steps": [
+          "前往对应院区 MDT 受理点，填写申请单、提交纸质资料",
+          "2 个工作日内反馈审核及预约结果"
+        ]
+      },
+      {
+        "name": "复诊专属绿色通道",
+        "scope": "仅复诊患者",
+        "steps": [
+          "联系上一轮主诊医生或 MDT 专职秘书，提交新增资料",
+          "1 个工作日内完成审核，优先排期"
+        ]
+      }
+    ]
+  }
+}

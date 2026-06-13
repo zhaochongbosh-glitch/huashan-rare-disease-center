@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>疾病知识库 | 华山医院罕见病中心</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="topbar"><div class="topbar-inner"><span>疾病知识库仅覆盖中国第一批、第二批罕见病目录内疾病。</span><a href="governance.html">内容审核机制</a></div></div>
+      <div class="nav-inner">
+        <a class="brand" href="index.html"><span class="brand-mark">HS</span><span><strong>华山医院罕见病中心</strong><span>Rare Disease Center</span></span></a>
+        <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">≡</button>
+        <nav class="main-nav" aria-label="主导航">
+          <a href="index.html">首页</a><a href="about.html">中心介绍</a><a href="visit.html">我要看病</a><a href="team.html">专家 MDT</a><a class="active" href="diseases.html">疾病知识库</a><a href="research.html">临床研究</a><a href="policy.html">政策医保</a><a href="news.html">新闻科普</a><a href="contact.html">联系我们</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero">
+        <div class="container page-title">
+          <div class="breadcrumb"><a href="index.html">首页</a> / 疾病知识库</div>
+          <h1>国家目录内罕见病知识库</h1>
+          <p>本知识库范围限定为中国第一批、第二批罕见病目录中的疾病。每个疾病条目不仅解释疾病，也提示建议就诊方向、材料清单、可关联研究和政策保障；目录外疾病不纳入本站百科范围。</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="grid three">
+            <article class="panel">
+              <div class="metric">121</div>
+              <h2>第一批罕见病目录</h2>
+              <p>2018 年由国家卫生健康委员会等五部门公布，作为我国罕见病管理、诊疗和保障的重要目录基础。</p>
+              <div class="button-row"><a class="btn" href="https://www.gov.cn/gongbao/content/2018/content_5338244.htm" target="_blank" rel="noreferrer">查看官方目录</a></div>
+            </article>
+            <article class="panel">
+              <div class="metric">86</div>
+              <h2>第二批罕见病目录</h2>
+              <p>2023 年由国家卫生健康委员会等六部门公布，进一步扩展中国官方罕见病目录范围。</p>
+              <div class="button-row"><a class="btn" href="https://app.www.gov.cn/govdata/gov/202309/21/507540/article.html" target="_blank" rel="noreferrer">查看官方目录</a></div>
+            </article>
+            <article class="panel">
+              <div class="metric">207</div>
+              <h2>本站收录边界</h2>
+              <p>第一版只规划这 207 种目录内疾病。若未来国家目录更新，知识库应按正式文件完成版本更新和复审。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Directory data</p>
+              <h2>目录疾病列表</h2>
+              <p id="disease-summary">正在加载国家目录内疾病数据。</p>
+            </div>
+          </div>
+          <div class="search-row">
+            <input id="disease-search" type="search" placeholder="搜索中文名、英文名或目录序号" autocomplete="off">
+            <button class="btn" type="button" id="disease-reset">重置</button>
+          </div>
+          <div class="filter-row" aria-label="疾病方向筛选">
+            <button class="filter-btn active" type="button" data-disease-filter="all">全部</button>
+            <button class="filter-btn" type="button" data-disease-filter="1">第一批目录</button>
+            <button class="filter-btn" type="button" data-disease-filter="2">第二批目录</button>
+          </div>
+          <div class="disease-table-wrap">
+            <table class="disease-table">
+              <thead>
+                <tr>
+                  <th>批次</th>
+                  <th>目录序号</th>
+                  <th>中文名称</th>
+                  <th>英文名称</th>
+                  <th>专病方向</th>
+                  <th>审核状态</th>
+                </tr>
+              </thead>
+              <tbody id="disease-list">
+                <tr><td colspan="6">正在加载。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="section-head"><div><p class="eyebrow">Template</p><h2>正式疾病页字段</h2><p>后续每个病种都按统一模板录入，避免科普内容碎片化。</p></div></div>
+          <div class="grid three">
+            <div class="panel"><h3>基础信息</h3><p>目录批次、目录序号、疾病名称、英文名称、别名、所属专病组、适用人群、危险信号。</p></div>
+            <div class="panel"><h3>就诊建议</h3><p>建议科室、初诊材料、诊断检查、遗传咨询提示。</p></div>
+            <div class="panel"><h3>审核信息</h3><p>作者、医学审核专家、更新时间、下次复审时间、反馈入口。</p></div>
+          </div>
+          <div class="panel mt">
+            <h3>收录规则</h3>
+            <p>新增疾病条目必须先匹配国家第一批或第二批罕见病目录中的标准中文名。目录外疾病可在新闻、科研动态或转诊说明中提及，但不建立疾病百科条目。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="footer-bottom"><div class="container">疾病知识库不替代医生诊断，具体诊疗以面诊意见为准。</div></div></footer>
+    <script src="data/site-data.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

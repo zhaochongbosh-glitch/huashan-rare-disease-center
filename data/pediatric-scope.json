@@ -1,0 +1,936 @@
+{
+  "metadata": {
+    "sourceFile": "C:\\Users\\zhaochob\\Downloads\\罕见病网站门诊提供材料\\附件-2 华山医院未成年患者资质与业务范围0305.xlsx",
+    "updatedAt": "2026-06-12",
+    "notes": "由附件 2 的 Sheet2、Sheet3 提取。年龄字段沿用原表口径，未开展表示该院区暂未开展对应业务。"
+  },
+  "records": [
+    {
+      "category": "外科",
+      "department": "骨科",
+      "pediatricSubject": "小儿骨科",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "10",
+          "emergency": "14",
+          "inpatient": "12"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "10",
+          "emergency": "14",
+          "inpatient": "10"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "√",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "普外",
+      "pediatricSubject": "小儿普外",
+      "campuses": {
+        "总院": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "14",
+          "inpatient": "14"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "普外",
+      "pediatricSubject": "肝脏移植",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "1月",
+          "emergency": "",
+          "inpatient": "1月"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "神外",
+      "pediatricSubject": "小儿神外",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "4",
+          "emergency": "",
+          "inpatient": "4"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "6",
+          "emergency": "",
+          "inpatient": "10"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "4",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "手外",
+      "pediatricSubject": "小儿骨科",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "1月",
+          "emergency": "",
+          "inpatient": "4"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "√",
+          "outpatient": "1月",
+          "inpatient": "14"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "眼科",
+      "pediatricSubject": "眼科",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "4",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "4",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "4",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "胰腺",
+      "pediatricSubject": "普外",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "√",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "运动",
+      "pediatricSubject": "运动",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "12",
+          "emergency": "",
+          "inpatient": "12"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "12",
+          "inpatient": "12"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "胸心",
+      "pediatricSubject": "小儿胸心外",
+      "campuses": {
+        "总院": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "泌尿",
+      "pediatricSubject": "小儿泌尿外",
+      "campuses": {
+        "总院": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "口腔",
+      "pediatricSubject": "儿童口腔",
+      "campuses": {
+        "总院": {
+          "qualification": "×",
+          "outpatient": "12",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "耳鼻咽喉",
+      "pediatricSubject": "儿童五官保健",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "8",
+          "emergency": "",
+          "inpatient": "8"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "8",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "未开展",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "放射",
+      "pediatricSubject": "影像",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "4",
+          "emergency": "",
+          "inpatient": "-"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "-"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "4",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "√",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "外科",
+      "department": "整形外科",
+      "pediatricSubject": "整形外科",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "未开展",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "皮肤",
+      "pediatricSubject": "皮肤科",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "1月",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "4",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "1月",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "神内",
+      "pediatricSubject": "小儿神经病",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "4（专病）/14（普通）",
+          "emergency": "",
+          "inpatient": "4"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "4（专病）/14（普通）",
+          "emergency": "",
+          "inpatient": "10"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "14",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "心内",
+      "pediatricSubject": "小儿心脏病",
+      "campuses": {
+        "总院": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "消化",
+      "pediatricSubject": "小儿消化",
+      "campuses": {
+        "总院": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "呼吸",
+      "pediatricSubject": "小儿呼吸",
+      "campuses": {
+        "总院": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "肾病",
+      "pediatricSubject": "小儿肾病",
+      "campuses": {
+        "总院": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "√",
+          "outpatient": "14",
+          "inpatient": "14"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "抗研",
+      "pediatricSubject": "内科",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "√",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "中西医",
+      "pediatricSubject": "中医儿科",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "14",
+          "inpatient": "14"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "康复",
+      "pediatricSubject": "儿童康复",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "1月",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "4",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "血液",
+      "pediatricSubject": "小儿血液病",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "感染",
+      "pediatricSubject": "小儿传染病*",
+      "campuses": {
+        "总院": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "内分",
+      "pediatricSubject": "小儿内分泌",
+      "campuses": {
+        "总院": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "10",
+          "emergency": "",
+          "inpatient": "10"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "肿瘤",
+      "pediatricSubject": "肿瘤",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "inpatient": "14"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "风湿",
+      "pediatricSubject": "免疫学专业",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "14"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "14",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "内科",
+      "department": "精神医学",
+      "pediatricSubject": "精神医学",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "14",
+          "emergency": "",
+          "inpatient": "-"
+        },
+        "虹桥院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "emergency": "",
+          "inpatient": "未开展"
+        },
+        "浦东院区": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    },
+    {
+      "category": "辅助类",
+      "department": "病理科",
+      "pediatricSubject": "病理",
+      "campuses": {
+        "总院": {
+          "qualification": "√",
+          "outpatient": "1月",
+          "emergency": "",
+          "inpatient": "-"
+        },
+        "虹桥院区": {
+          "qualification": "√",
+          "outpatient": "4",
+          "emergency": "",
+          "inpatient": "0"
+        },
+        "浦东院区": {
+          "qualification": "√",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        },
+        "江苏路分部": {
+          "qualification": "×",
+          "outpatient": "未开展",
+          "inpatient": "未开展"
+        }
+      }
+    }
+  ],
+  "specialSettings": [
+    {
+      "clinicOrDoctor": "骨科足踝专病",
+      "requestedSetting": "6周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    },
+    {
+      "clinicOrDoctor": "骨科脊柱专病",
+      "requestedSetting": "6周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    },
+    {
+      "clinicOrDoctor": "马晓生",
+      "requestedSetting": "6周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    },
+    {
+      "clinicOrDoctor": "朱晓东",
+      "requestedSetting": "6周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    },
+    {
+      "clinicOrDoctor": "陈誉",
+      "requestedSetting": "6周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    },
+    {
+      "clinicOrDoctor": "陆九州",
+      "requestedSetting": "6周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    },
+    {
+      "clinicOrDoctor": "马昕",
+      "requestedSetting": "6周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    },
+    {
+      "clinicOrDoctor": "王旭",
+      "requestedSetting": "6周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    },
+    {
+      "clinicOrDoctor": "黄加张",
+      "requestedSetting": "6周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    },
+    {
+      "clinicOrDoctor": "张超",
+      "requestedSetting": "6周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    },
+    {
+      "clinicOrDoctor": "骨科普通门诊",
+      "requestedSetting": "10周岁及以上",
+      "publishedSetting": "6周岁及以上"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "sourceDirectory": "C:\\Users\\zhaochob\\Downloads\\罕见病网站门诊提供材料\\附件-3-华山医院各院区门诊平面图",
+    "notes": "Copied from attachment 3 into project assets."
+  },
+  "items": [
+    {
+      "campus": "宝山院区",
+      "title": "00 总览",
+      "file": "assets/floorplans/宝山院区/00-总览.jpg",
+      "sizeBytes": 119419
+    },
+    {
+      "campus": "宝山院区",
+      "title": "1层平面图",
+      "file": "assets/floorplans/宝山院区/1层平面图.png",
+      "sizeBytes": 251576
+    },
+    {
+      "campus": "宝山院区",
+      "title": "2层平面图",
+      "file": "assets/floorplans/宝山院区/2层平面图.png",
+      "sizeBytes": 234821
+    },
+    {
+      "campus": "宝山院区",
+      "title": "3层平面图",
+      "file": "assets/floorplans/宝山院区/3层平面图.png",
+      "sizeBytes": 263602
+    },
+    {
+      "campus": "总院",
+      "title": "1楼平面图",
+      "file": "assets/floorplans/总院/1楼平面图.jpg",
+      "sizeBytes": 181652
+    },
+    {
+      "campus": "总院",
+      "title": "2楼平面图",
+      "file": "assets/floorplans/总院/2楼平面图.jpg",
+      "sizeBytes": 170608
+    },
+    {
+      "campus": "总院",
+      "title": "3楼平面图",
+      "file": "assets/floorplans/总院/3楼平面图.jpg",
+      "sizeBytes": 176884
+    },
+    {
+      "campus": "总院",
+      "title": "4楼平面图",
+      "file": "assets/floorplans/总院/4楼平面图.jpg",
+      "sizeBytes": 185821
+    },
+    {
+      "campus": "总院",
+      "title": "5楼平面图",
+      "file": "assets/floorplans/总院/5楼平面图.jpg",
+      "sizeBytes": 184561
+    },
+    {
+      "campus": "总院",
+      "title": "6楼平面图",
+      "file": "assets/floorplans/总院/6楼平面图.jpg",
+      "sizeBytes": 854171
+    },
+    {
+      "campus": "总院",
+      "title": "7楼平面图",
+      "file": "assets/floorplans/总院/7楼平面图.jpg",
+      "sizeBytes": 7133746
+    },
+    {
+      "campus": "浦东院区",
+      "title": "浦东一楼",
+      "file": "assets/floorplans/浦东院区/浦东一楼.jpg",
+      "sizeBytes": 268086
+    },
+    {
+      "campus": "虹桥院区",
+      "title": "1层",
+      "file": "assets/floorplans/虹桥院区/1层.jpg",
+      "sizeBytes": 16590725
+    },
+    {
+      "campus": "虹桥院区",
+      "title": "2层",
+      "file": "assets/floorplans/虹桥院区/2层.jpg",
+      "sizeBytes": 16982758
+    }
+  ]
+}

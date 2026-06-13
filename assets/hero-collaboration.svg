@@ -1,0 +1,39 @@
+<svg width="1440" height="760" viewBox="0 0 1440 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Rare disease multidisciplinary consultation illustration</title>
+  <desc id="desc">An abstract hospital consultation scene with medical charts, genome patterns, and collaborative care signals.</desc>
+  <rect width="1440" height="760" fill="#eef6f8"/>
+  <path d="M0 0h1440v760H0z" fill="url(#bg)"/>
+  <path d="M902 72c156 0 282 126 282 282S1058 636 902 636 620 510 620 354 746 72 902 72Z" fill="#d7eef1"/>
+  <path d="M1040 132c126 0 228 102 228 228s-102 228-228 228-228-102-228-228 102-228 228-228Z" fill="#f7fbfc"/>
+  <rect x="720" y="160" width="420" height="270" rx="18" fill="#ffffff" stroke="#b8d7dc" stroke-width="3"/>
+  <rect x="755" y="200" width="168" height="18" rx="9" fill="#2c7a88"/>
+  <rect x="755" y="240" width="300" height="12" rx="6" fill="#c5dfe3"/>
+  <rect x="755" y="267" width="248" height="12" rx="6" fill="#d6e8eb"/>
+  <rect x="755" y="294" width="280" height="12" rx="6" fill="#d6e8eb"/>
+  <path d="M781 367c36-62 70-38 98-18 33 24 63 14 92-42 30-58 64-54 96-21" stroke="#c9413f" stroke-width="12" stroke-linecap="round"/>
+  <path d="M780 367c40 18 74 16 104-6 31-22 55-55 82-61 33-7 62 18 101 71" stroke="#35a6a6" stroke-width="12" stroke-linecap="round"/>
+  <rect x="585" y="455" width="560" height="82" rx="16" fill="#183f56"/>
+  <rect x="620" y="486" width="210" height="20" rx="10" fill="#ffffff" opacity=".88"/>
+  <rect x="870" y="486" width="110" height="20" rx="10" fill="#66c2bd"/>
+  <rect x="1004" y="486" width="78" height="20" rx="10" fill="#f3c86b"/>
+  <path d="M1169 259c42 0 76 34 76 76s-34 76-76 76-76-34-76-76 34-76 76-76Z" fill="#ffffff" stroke="#b8d7dc" stroke-width="3"/>
+  <path d="M1169 292v86M1126 335h86" stroke="#2c7a88" stroke-width="12" stroke-linecap="round"/>
+  <path d="M654 184c-58 34-92 92-92 156 0 44 16 84 43 117" stroke="#7fb8c0" stroke-width="6" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M1222 498c-72 76-180 112-287 91" stroke="#7fb8c0" stroke-width="6" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <g opacity=".82">
+    <circle cx="1245" cy="192" r="9" fill="#c9413f"/>
+    <circle cx="1282" cy="220" r="6" fill="#35a6a6"/>
+    <circle cx="1208" cy="225" r="6" fill="#f3c86b"/>
+    <path d="M1245 192l37 28M1245 192l-37 33" stroke="#8bbcc3" stroke-width="3"/>
+  </g>
+  <g opacity=".5">
+    <path d="M220 602c114-52 235-64 356-36 121 28 232 18 333-31 73-35 148-45 224-29 83 17 165 5 247-36v290H0V665c67-4 140-25 220-63Z" fill="#dcebed"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f7fbfc"/>
+      <stop offset=".55" stop-color="#eef6f8"/>
+      <stop offset="1" stop-color="#f6f1e7"/>
+    </linearGradient>
+  </defs>
+</svg>
