@@ -514,6 +514,11 @@ h1 {
   color: var(--muted);
 }
 
+.center-video-lede {
+  font-size: 18px;
+  line-height: 1.85;
+}
+
 .center-video-player {
   overflow: hidden;
   border: 1px solid var(--line);
