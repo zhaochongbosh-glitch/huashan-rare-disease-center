@@ -11,7 +11,7 @@
     <header class="site-header">
       <div class="topbar"><div class="topbar-inner"><span>研究成果数据来自 PubMed，中文摘要待后续 OpenAI API 翻译并人工复核后发布。</span><a href="research.html">查看临床研究</a></div></div>
       <div class="nav-inner">
-        <a class="brand" href="index.html"><span class="brand-mark">HS</span><span><strong>华山医院罕见病中心</strong><span>Huashan Rare Disease Center</span></span></a>
+        <a class="brand" href="index.html"><img class="brand-logo" src="assets/huashan-rare-disease-center-logo.jpg" alt="华山医院罕见病中心标识"><span><strong>华山医院罕见病中心</strong><span>Huashan Rare Disease Center</span></span></a>
         <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">≡</button>
         <nav class="main-nav" aria-label="主导航">
           <a href="index.html">首页</a><a href="about.html">中心介绍</a><a href="visit.html">我要看病</a><a href="team.html">专家 MDT</a><a href="diseases.html">疾病知识库</a><a href="research.html">临床研究</a><a class="active" href="publications.html">研究成果</a><a href="policy.html">政策医保</a><a href="news.html">新闻科普</a><a href="contact.html">联系我们</a>
@@ -46,7 +46,67 @@
       </section>
     </main>
     <footer class="site-footer"><div class="footer-bottom"><div class="container">研究成果数据来自 PubMed；中文摘要翻译上线前需完成医学审核。</div></div></footer>
-    <script src="data/site-data.js"></script>
-    <script src="scripts.js"></script>
+    <script src="data/site-data.js?v=20260613-2"></script>
+    <script src="scripts.js?v=20260613-2"></script>
+    <script>
+      (() => {
+        const list = document.querySelector("#publication-list");
+        const summary = document.querySelector("#publication-summary");
+        const count = document.querySelector("#publication-result-count");
+        if (!list || !summary) return;
+
+        const escapeValue = (value) =>
+          String(value ?? "")
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+
+        const render = (payload) => {
+          if (list.children.length) return;
+          const items = Array.isArray(payload?.items) ? payload.items : [];
+          const metadata = payload?.metadata || {};
+          summary.textContent = `共检索到 ${items.length} 篇 PubMed 文章，数据更新于 ${metadata.updatedAt || "待同步"}。检索策略：${metadata.searchStrategy || "待补充"}`;
+          if (count) count.textContent = `当前显示 ${items.length} 篇文章。`;
+          list.innerHTML = items
+            .map((item) => {
+              const affiliation = (item.matchedAffiliations || []).join("; ") || (item.affiliations || [])[0] || "单位信息待补充";
+              return `
+                <article class="publication-card">
+                  <div class="publication-head">
+                    <p class="mini-meta">PMID ${escapeValue(item.pmid)} · ${escapeValue(item.publicationDate || "日期待补充")}</p>
+                    <a class="btn" href="${escapeValue(item.pubmedUrl)}" target="_blank" rel="noreferrer">PubMed</a>
+                  </div>
+                  <h3>${escapeValue(item.title)}</h3>
+                  <p><strong>作者：</strong>${escapeValue(item.authorLine || "作者信息待补充")}</p>
+                  <p><strong>单位：</strong>${escapeValue(affiliation)}</p>
+                  <p><strong>期刊：</strong>${escapeValue(item.journal || "期刊信息待补充")}${item.doi ? ` · DOI ${escapeValue(item.doi)}` : ""}</p>
+                  <details>
+                    <summary>查看摘要</summary>
+                    <p>${escapeValue(item.abstract || "PubMed 未提供摘要。")}</p>
+                    <p><strong>中文摘要：</strong>${escapeValue(item.abstractZh || "中文摘要待 OpenAI API 翻译后补充。")}</p>
+                  </details>
+                </article>
+              `;
+            })
+            .join("");
+        };
+
+        window.setTimeout(() => {
+          if (list.children.length) return;
+          if (window.SiteData?.publications) {
+            render(window.SiteData.publications);
+            return;
+          }
+          fetch("data/publications.json?v=20260613-2")
+            .then((response) => response.json())
+            .then(render)
+            .catch(() => {
+              summary.textContent = "未能加载 PubMed 文章数据，请刷新页面或稍后重试。";
+            });
+        }, 0);
+      })();
+    </script>
   </body>
 </html>
