@@ -356,3 +356,94 @@ if (floorplanList) {
       floorplanList.innerHTML = `<div class="empty-state">${localhostHint("visit.html")}</div>`;
     });
 }
+
+const publicationList = document.querySelector("#publication-list");
+const publicationSummary = document.querySelector("#publication-summary");
+const publicationSearch = document.querySelector("#publication-search");
+const publicationReset = document.querySelector("#publication-reset");
+const publicationResultCount = document.querySelector("#publication-result-count");
+
+if (publicationList && publicationSummary) {
+  let publications = [];
+  let activePublicationQuery = "";
+
+  const publicationHaystack = (item) =>
+    [
+      item.pmid,
+      item.title,
+      item.authorLine,
+      item.journal,
+      item.publicationDate,
+      item.doi,
+      item.abstract,
+      ...(item.matchedAffiliations || []),
+      ...(item.affiliations || [])
+    ]
+      .join(" ")
+      .toLowerCase();
+
+  const renderPublications = () => {
+    const query = activePublicationQuery.trim().toLowerCase();
+    const filtered = publications.filter((item) => !query || publicationHaystack(item).includes(query));
+
+    if (publicationResultCount) {
+      publicationResultCount.textContent = `当前显示 ${filtered.length} 篇文章。`;
+    }
+
+    if (!filtered.length) {
+      publicationList.innerHTML = `<div class="empty-state">没有找到匹配的 PubMed 文章。</div>`;
+      return;
+    }
+
+    publicationList.innerHTML = filtered
+      .map((item) => {
+        const affiliation =
+          (item.matchedAffiliations || []).join("; ") ||
+          (item.affiliations || [])[0] ||
+          "单位信息待补充";
+        const abstract = item.abstract || "PubMed 未提供摘要。";
+        const abstractZh = item.abstractZh || "中文摘要待 OpenAI API 翻译后补充。";
+        return `
+          <article class="publication-card">
+            <div class="publication-head">
+              <p class="mini-meta">PMID ${escapeHtml(item.pmid)} · ${escapeHtml(item.publicationDate || "日期待补充")}</p>
+              <a class="btn" href="${escapeHtml(item.pubmedUrl)}" target="_blank" rel="noreferrer">PubMed</a>
+            </div>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p><strong>作者：</strong>${escapeHtml(item.authorLine || "作者信息待补充")}</p>
+            <p><strong>单位：</strong>${escapeHtml(affiliation)}</p>
+            <p><strong>期刊：</strong>${escapeHtml(item.journal || "期刊信息待补充")}${item.doi ? ` · DOI ${escapeHtml(item.doi)}` : ""}</p>
+            <details>
+              <summary>查看摘要</summary>
+              <p>${escapeHtml(abstract)}</p>
+              <p><strong>中文摘要：</strong>${escapeHtml(abstractZh)}</p>
+            </details>
+          </article>
+        `;
+      })
+      .join("");
+  };
+
+  loadData("data/publications.json", "publications")
+    .then((payload) => {
+      publications = Array.isArray(payload.items) ? payload.items : [];
+      const metadata = payload.metadata || {};
+      publicationSummary.textContent = `共检索到 ${publications.length} 篇 PubMed 文章，数据更新于 ${metadata.updatedAt || "待同步"}。检索策略：${metadata.searchStrategy || "待补充"}`;
+      renderPublications();
+    })
+    .catch(() => {
+      publicationSummary.textContent = "未能加载 PubMed 文章数据。";
+      publicationList.innerHTML = `<div class="empty-state">${localhostHint("research.html")}</div>`;
+    });
+
+  publicationSearch?.addEventListener("input", (event) => {
+    activePublicationQuery = event.target.value;
+    renderPublications();
+  });
+
+  publicationReset?.addEventListener("click", () => {
+    activePublicationQuery = "";
+    if (publicationSearch) publicationSearch.value = "";
+    renderPublications();
+  });
+}

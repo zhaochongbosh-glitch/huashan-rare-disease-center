@@ -29,6 +29,7 @@
 - `data/mdt-directory.json` 附件 1 提取的全院区 MDT 团队目录
 - `data/pediatric-scope.json` 附件 2 提取的未成年患者接诊资质与业务范围
 - `data/floorplans.json` 附件 3 提取的各院区门诊平面图索引
+- `data/publications.json` PubMed 检索到的中心署名单位文章，含 PMID、题目、作者、单位、期刊、摘要和中文摘要占位字段
 - `data/experts.json` 专家与 MDT 团队数据结构
 - `data/trials.json` 临床研究数据结构
 - `data/news.json` 新闻科普数据结构
@@ -50,6 +51,23 @@
 ```powershell
 node tools\build_site_data.js
 ```
+
+## PubMed 文章更新
+
+PubMed 文章检索策略固定为：
+
+```text
+"Huashan Rare Disease Center"[Affiliation] OR "Huashan Rare Disease Centre"[Affiliation]
+```
+
+刷新文章数据：
+
+```powershell
+& 'C:\Users\zhaochob\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' tools\fetch_pubmed_publications.py
+node tools\build_site_data.js
+```
+
+`abstractZh` 字段预留给后续 OpenAI API 中文翻译流程；正式上线前建议对翻译内容设置人工复核状态。
 
 ## 本地预览
 

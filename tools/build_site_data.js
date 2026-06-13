@@ -7,7 +7,8 @@ const sources = {
   diseases: "data/diseases.json",
   mdtDirectory: "data/mdt-directory.json",
   pediatricScope: "data/pediatric-scope.json",
-  floorplans: "data/floorplans.json"
+  floorplans: "data/floorplans.json",
+  publications: "data/publications.json"
 };
 
 const data = {};

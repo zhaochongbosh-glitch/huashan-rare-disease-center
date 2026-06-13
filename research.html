@@ -46,7 +46,25 @@
           </div>
         </div>
       </section>
-      <section class="section alt">
+      <section class="section alt" id="pubmed-publications">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">PubMed</p>
+              <h2>PubMed 发表文章</h2>
+              <p id="publication-summary">正在加载 PubMed 文章数据。检索策略限定为作者署名单位包含 Huashan Rare Disease Center 或 Huashan Rare Disease Centre。</p>
+            </div>
+            <a class="btn" href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Huashan+Rare+Disease+Center%22%5BAffiliation%5D+OR+%22Huashan+Rare+Disease+Centre%22%5BAffiliation%5D" target="_blank" rel="noreferrer">打开 PubMed 检索</a>
+          </div>
+          <div class="search-row">
+            <input id="publication-search" type="search" placeholder="搜索 PMID、题目、作者、期刊、单位或摘要" autocomplete="off">
+            <button class="btn" type="button" id="publication-reset">重置</button>
+          </div>
+          <p class="result-count" id="publication-result-count"></p>
+          <div class="publication-list" id="publication-list"></div>
+        </div>
+      </section>
+      <section class="section">
         <div class="container split">
           <div class="panel">
             <h2>研究信息发布原则</h2>
