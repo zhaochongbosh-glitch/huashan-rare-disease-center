@@ -5,6 +5,7 @@ const root = path.resolve(__dirname, "..");
 
 const sources = {
   diseases: "data/diseases.json",
+  diseaseDetails: "data/disease-details.json",
   mdtDirectory: "data/mdt-directory.json",
   pediatricScope: "data/pediatric-scope.json",
   floorplans: "data/floorplans.json",

@@ -53,6 +53,8 @@ const diseaseFilters = document.querySelectorAll("[data-disease-filter]");
 
 if (diseaseList && diseaseSummary) {
   let diseases = [];
+  let diseaseDetails = [];
+  let detailByDiseaseId = new Map();
   let activeDiseaseBatch = "all";
   let activeDiseaseQuery = "";
 
@@ -74,13 +76,17 @@ if (diseaseList && diseaseSummary) {
     diseaseSummary.textContent = `共收录 ${diseases.length} 种目录内疾病，当前显示 ${filtered.length} 种。专病方向待中心专家分组审核后补充。`;
 
     if (!filtered.length) {
-      diseaseList.innerHTML = `<tr><td colspan="6"><div class="empty-state">没有找到匹配的目录内疾病。</div></td></tr>`;
+      diseaseList.innerHTML = `<tr><td colspan="7"><div class="empty-state">没有找到匹配的目录内疾病。</div></td></tr>`;
       return;
     }
 
     diseaseList.innerHTML = filtered
       .map((item) => {
         const batchLabel = item.batch === 1 ? "第一批" : "第二批";
+        const detail = detailByDiseaseId.get(item.id);
+        const detailLink = detail
+          ? `<a class="text-link" href="disease-detail.html?id=${encodeURIComponent(item.id)}">查看详情</a>`
+          : `<span class="muted">待补充</span>`;
         return `
           <tr>
             <td>${batchLabel}</td>
@@ -89,20 +95,26 @@ if (diseaseList && diseaseSummary) {
             <td>${escapeHtml(item.nameEn)}</td>
             <td>${escapeHtml(item.specialtyGroup)}</td>
             <td>${escapeHtml(item.reviewStatus)}</td>
+            <td>${detailLink}</td>
           </tr>
         `;
       })
       .join("");
   };
 
-  loadData("data/diseases.json", "diseases")
-    .then((payload) => {
-      diseases = Array.isArray(payload.items) ? payload.items : [];
+  Promise.all([
+    loadData("data/diseases.json", "diseases"),
+    loadData("data/disease-details.json", "diseaseDetails").catch(() => ({ items: [] }))
+  ])
+    .then(([diseasePayload, detailPayload]) => {
+      diseases = Array.isArray(diseasePayload.items) ? diseasePayload.items : [];
+      diseaseDetails = Array.isArray(detailPayload.items) ? detailPayload.items : [];
+      detailByDiseaseId = new Map(diseaseDetails.map((item) => [item.diseaseId, item]));
       renderDiseases();
     })
     .catch(() => {
       diseaseSummary.textContent = "未能加载疾病数据。请用本地静态服务器打开本站，例如 node server.js。";
-      diseaseList.innerHTML = `<tr><td colspan="6"><div class="empty-state">${localhostHint("diseases.html")}</div></td></tr>`;
+      diseaseList.innerHTML = `<tr><td colspan="7"><div class="empty-state">${localhostHint("diseases.html")}</div></td></tr>`;
     });
 
   diseaseFilters.forEach((button) => {
@@ -126,6 +138,216 @@ if (diseaseList && diseaseSummary) {
     diseaseFilters.forEach((item) => item.classList.toggle("active", item.getAttribute("data-disease-filter") === "all"));
     renderDiseases();
   });
+}
+
+const diseaseDetailRoot = document.querySelector("#disease-detail-root");
+
+if (diseaseDetailRoot) {
+  const params = new URLSearchParams(window.location.search);
+  const requestedId = params.get("id");
+  const requestedSlug = params.get("slug");
+
+  const renderTags = (items = []) =>
+    items.map((item) => `<span class="tag">${escapeHtml(item)}</span>`).join("");
+
+  const renderList = (items = []) =>
+    `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+
+  const renderGroupedCards = (items = [], className = "detail-card-grid") =>
+    `<div class="${className}">${items
+      .map(
+        (group) => `
+          <article class="detail-card">
+            <h3>${escapeHtml(group.title)}</h3>
+            ${group.description ? `<p>${escapeHtml(group.description)}</p>` : ""}
+            ${group.subtitle ? `<p class="mini-meta">${escapeHtml(group.subtitle)}</p>` : ""}
+            ${group.items?.length ? renderList(group.items) : ""}
+            ${group.note ? `<p class="detail-note">${escapeHtml(group.note)}</p>` : ""}
+          </article>
+        `
+      )
+      .join("")}</div>`;
+
+  const renderFaq = (items = []) =>
+    `<div class="faq-list">${items
+      .map(
+        (item) => `
+          <details>
+            <summary>${escapeHtml(item.question)}</summary>
+            <p>${escapeHtml(item.answer)}</p>
+            ${item.items?.length ? renderList(item.items) : ""}
+          </details>
+        `
+      )
+      .join("")}</div>`;
+
+  const renderMissingDisease = () => {
+    diseaseDetailRoot.innerHTML = `
+      <section class="page-hero">
+        <div class="container page-title">
+          <div class="breadcrumb"><a href="index.html">首页</a> / <a href="diseases.html">疾病知识库</a> / 疾病详情</div>
+          <h1>未找到疾病详情</h1>
+          <p>该疾病暂未建立详情页，或当前链接参数不完整。</p>
+          <div class="button-row"><a class="btn" href="diseases.html">返回疾病知识库</a></div>
+        </div>
+      </section>
+    `;
+  };
+
+  const renderDiseaseDetail = (detail, catalogItem) => {
+    const catalogName = catalogItem?.nameCn || detail.catalogName || detail.displayName;
+    const status = catalogItem?.reviewStatus || "待中心专家医学审核";
+    const batchLabel = catalogItem?.batch === 1 ? "第一批目录" : catalogItem?.batch === 2 ? "第二批目录" : detail.directoryBatch;
+    document.title = `${detail.displayName} | 疾病知识库 | 华山医院罕见病中心`;
+
+    diseaseDetailRoot.innerHTML = `
+      <section class="page-hero disease-detail-hero">
+        <div class="container">
+          <div class="breadcrumb"><a href="index.html">首页</a> / <a href="diseases.html">疾病知识库</a> / ${escapeHtml(detail.displayName)}</div>
+          <div class="disease-detail-hero-grid">
+            <div class="page-title">
+              <p class="eyebrow">${escapeHtml(detail.directoryBatch)}</p>
+              <h1>${escapeHtml(detail.displayName)}</h1>
+              <p>${detail.summary.map((item) => escapeHtml(item)).join("</p><p>")}</p>
+              <div class="tag-row">
+                ${renderTags([batchLabel, detail.specialtyGroup, detail.shortName, status])}
+              </div>
+            </div>
+            <aside class="detail-fact-panel">
+              <dl>
+                <div><dt>目录名称</dt><dd>${escapeHtml(catalogName)}</dd></div>
+                <div><dt>英文名称</dt><dd>${escapeHtml(detail.englishName)}</dd></div>
+                <div><dt>目录序号</dt><dd>${escapeHtml(catalogItem?.catalogNo || "-")}</dd></div>
+                <div><dt>审核状态</dt><dd>${escapeHtml(status)}</dd></div>
+              </dl>
+              <div class="button-row stacked">
+                <a class="btn" href="visit.html">预约就诊入口</a>
+                <a class="btn secondary" href="mdt.html">MDT 申请说明</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container disease-detail-layout">
+          <article class="detail-main">
+            <section class="detail-section intro-media">
+              <div>
+                <p class="eyebrow">Overview</p>
+                <h2>疾病简介</h2>
+                ${detail.summary.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}
+              </div>
+              <figure>
+                <img src="${escapeHtml(detail.heroImage)}" alt="${escapeHtml(detail.heroImageAlt)}">
+                <figcaption>${escapeHtml(detail.heroImageAlt)}</figcaption>
+              </figure>
+            </section>
+
+            <section class="detail-section">
+              <div class="section-head compact"><div><p class="eyebrow">Symptoms</p><h2>常见症状</h2></div></div>
+              ${renderGroupedCards(detail.symptoms)}
+              <div class="detail-alert"><strong>典型特点</strong><div class="tag-row">${renderTags(detail.features)}</div></div>
+            </section>
+
+            <section class="detail-section two-column">
+              <div>
+                <div class="section-head compact"><div><p class="eyebrow">Visit</p><h2>建议就诊方向</h2></div></div>
+                ${renderGroupedCards([
+                  { title: "首选科室", items: detail.visit.primary },
+                  { title: "相关科室", items: detail.visit.related }
+                ])}
+              </div>
+              <div>
+                <div class="section-head compact"><div><p class="eyebrow">Materials</p><h2>初诊材料</h2><p>${escapeHtml(detail.materialsIntro)}</p></div></div>
+                ${renderGroupedCards(detail.materials)}
+              </div>
+            </section>
+
+            <section class="detail-section mdt-highlight">
+              <div>
+                <p class="eyebrow">MDT</p>
+                <h2>${escapeHtml(detail.mdt.status)}</h2>
+                <p>${escapeHtml(detail.mdt.description)}</p>
+                ${detail.mdt.recommendedIntro ? `<p>${escapeHtml(detail.mdt.recommendedIntro)}</p>` : ""}
+                ${renderList(detail.mdt.recommendedFor)}
+              </div>
+              <div>
+                ${renderGroupedCards(detail.mdt.teams, "detail-card-grid one")}
+              </div>
+            </section>
+
+            ${
+              detail.classification
+                ? `<section class="detail-section">
+                    <div class="section-head compact"><div><p class="eyebrow">Types</p><h2>疾病分型</h2></div></div>
+                    ${renderGroupedCards(detail.classification)}
+                  </section>`
+                : ""
+            }
+
+            <section class="detail-section">
+              <div class="section-head compact"><div><p class="eyebrow">Research</p><h2>可关联临床研究</h2></div></div>
+              ${renderGroupedCards(detail.research)}
+            </section>
+
+            <section class="detail-section">
+              <div class="section-head compact"><div><p class="eyebrow">Policy</p><h2>政策医保提示</h2></div></div>
+              ${renderGroupedCards(detail.policy)}
+            </section>
+
+            <section class="detail-section">
+              <div class="section-head compact"><div><p class="eyebrow">FAQ</p><h2>患者常见问题</h2></div></div>
+              ${renderFaq(detail.faq)}
+            </section>
+
+            <section class="detail-section">
+              <div class="section-head compact"><div><p class="eyebrow">Keywords</p><h2>疾病关键词</h2></div></div>
+              <div class="tag-row">${renderTags(detail.keywords)}</div>
+            </section>
+          </article>
+
+          <aside class="detail-sidebar">
+            <div class="panel sticky-panel">
+              <h3>内容状态</h3>
+              <p>${escapeHtml(status)}</p>
+              <p class="mini-meta">来源：${escapeHtml(window.SiteData?.diseaseDetails?.metadata?.source || "疾病详情文档")}；更新时间：${escapeHtml(window.SiteData?.diseaseDetails?.metadata?.updatedAt || "待更新")}。</p>
+              <div class="button-row stacked">
+                <a class="btn" href="diseases.html">返回知识库</a>
+                <a class="btn secondary" href="contact.html">反馈内容问题</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    `;
+  };
+
+  Promise.all([
+    loadData("data/disease-details.json", "diseaseDetails"),
+    loadData("data/diseases.json", "diseases")
+  ])
+    .then(([detailPayload, diseasePayload]) => {
+      const details = Array.isArray(detailPayload.items) ? detailPayload.items : [];
+      const catalog = Array.isArray(diseasePayload.items) ? diseasePayload.items : [];
+      const detail = details.find((item) => item.diseaseId === requestedId || item.id === requestedSlug);
+      const catalogItem = catalog.find((item) => item.id === detail?.diseaseId);
+      if (!detail) {
+        renderMissingDisease();
+        return;
+      }
+      renderDiseaseDetail(detail, catalogItem);
+    })
+    .catch(() => {
+      diseaseDetailRoot.innerHTML = `
+        <section class="page-hero">
+          <div class="container page-title">
+            <div class="breadcrumb"><a href="index.html">首页</a> / <a href="diseases.html">疾病知识库</a> / 疾病详情</div>
+            <h1>疾病详情加载失败</h1>
+            <p>${localhostHint("disease-detail.html")}</p>
+          </div>
+        </section>
+      `;
+    });
 }
 
 const mdtDirectoryList = document.querySelector("#mdt-directory-list");
