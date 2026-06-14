@@ -25,10 +25,10 @@
     "notes": "本数据仅建立目录内疾病索引。专病方向、专家审核、详情内容需由中心后续补充确认。"
   },
   "items": [
-    { "id": "batch1-001", "batch": 1, "catalogNo": 1, "nameCn": "21-羟化酶缺乏症", "nameEn": "21-Hydroxylase Deficiency", "specialtyGroup": "待中心分组", "reviewStatus": "目录已收录，内容待审核" },
-    { "id": "batch1-002", "batch": 1, "catalogNo": 2, "nameCn": "白化病", "nameEn": "Albinism", "specialtyGroup": "待中心分组", "reviewStatus": "目录已收录，内容待审核" },
-    { "id": "batch1-003", "batch": 1, "catalogNo": 3, "nameCn": "Alport 综合征", "nameEn": "Alport Syndrome", "specialtyGroup": "待中心分组", "reviewStatus": "目录已收录，内容待审核" },
-    { "id": "batch1-004", "batch": 1, "catalogNo": 4, "nameCn": "肌萎缩侧索硬化", "nameEn": "Amyotrophic Lateral Sclerosis", "specialtyGroup": "待中心分组", "reviewStatus": "目录已收录，内容待审核" },
+    { "id": "batch1-001", "batch": 1, "catalogNo": 1, "nameCn": "21-羟化酶缺乏症", "nameEn": "21-Hydroxylase Deficiency", "specialtyGroup": "内分泌与遗传代谢病", "reviewStatus": "已有详情，待中心专家医学审核" },
+    { "id": "batch1-002", "batch": 1, "catalogNo": 2, "nameCn": "白化病", "nameEn": "Albinism", "specialtyGroup": "眼科、皮肤与遗传病", "reviewStatus": "已有详情，待中心专家医学审核" },
+    { "id": "batch1-003", "batch": 1, "catalogNo": 3, "nameCn": "Alport 综合征", "nameEn": "Alport Syndrome", "specialtyGroup": "肾脏与遗传病", "reviewStatus": "已有详情，待中心专家医学审核" },
+    { "id": "batch1-004", "batch": 1, "catalogNo": 4, "nameCn": "肌萎缩侧索硬化", "nameEn": "Amyotrophic Lateral Sclerosis", "specialtyGroup": "神经肌肉病", "reviewStatus": "已有详情，待中心专家医学审核" },
     { "id": "batch1-005", "batch": 1, "catalogNo": 5, "nameCn": "Angelman 氏症候群（天使综合征）", "nameEn": "Angelman Syndrome", "specialtyGroup": "待中心分组", "reviewStatus": "目录已收录，内容待审核" },
     { "id": "batch1-006", "batch": 1, "catalogNo": 6, "nameCn": "精氨酸酶缺乏症", "nameEn": "Arginase Deficiency", "specialtyGroup": "待中心分组", "reviewStatus": "目录已收录，内容待审核" },
     { "id": "batch1-007", "batch": 1, "catalogNo": 7, "nameCn": "热纳综合征（窒息性胸腔失养症）", "nameEn": "Asphyxiating Thoracic Dystrophy (Jeune Syndrome)", "specialtyGroup": "待中心分组", "reviewStatus": "目录已收录，内容待审核" },

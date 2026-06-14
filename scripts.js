@@ -246,7 +246,11 @@ if (diseaseDetailRoot) {
             <section class="detail-section">
               <div class="section-head compact"><div><p class="eyebrow">Symptoms</p><h2>常见症状</h2></div></div>
               ${renderGroupedCards(detail.symptoms)}
-              <div class="detail-alert"><strong>典型特点</strong><div class="tag-row">${renderTags(detail.features)}</div></div>
+              ${
+                detail.features?.length
+                  ? `<div class="detail-alert"><strong>典型特点</strong><div class="tag-row">${renderTags(detail.features)}</div></div>`
+                  : ""
+              }
             </section>
 
             <section class="detail-section two-column">
