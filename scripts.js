@@ -673,3 +673,186 @@ if (publicationList && publicationSummary) {
     renderPublications();
   });
 }
+
+const newsList = document.querySelector("#news-list");
+const newsSummary = document.querySelector("#news-summary");
+const newsFilterButtons = document.querySelectorAll("[data-news-filter]");
+
+if (newsList && newsSummary) {
+  let newsItems = [];
+  let activeNewsCategory = "all";
+
+  const newsDate = (date) => {
+    if (!date) return "日期待补充";
+    const [year, month, day] = date.split("-");
+    return `${year}年${Number(month)}月${Number(day)}日`;
+  };
+
+  const newsTags = (items = []) =>
+    items.filter(Boolean).map((item) => `<span class="tag">${escapeHtml(item)}</span>`).join("");
+
+  const renderNewsList = () => {
+    const filtered = newsItems.filter((item) => activeNewsCategory === "all" || item.category === activeNewsCategory);
+    const centerCount = newsItems.filter((item) => item.category === "center").length;
+    newsSummary.textContent = `已收录 ${centerCount} 条中心动态，按活动实际发生日期倒序排列。`;
+
+    if (!filtered.length) {
+      newsList.innerHTML = `<div class="empty-state">该栏目内容待补充。</div>`;
+      return;
+    }
+
+    newsList.innerHTML = filtered
+      .map(
+        (item) => `
+          <article class="news-card" data-category="${escapeHtml(item.category)}">
+            <a href="news-detail.html?id=${encodeURIComponent(item.id)}" aria-label="${escapeHtml(item.title)}">
+              <img src="${escapeHtml(item.featuredImage)}" alt="${escapeHtml(item.featuredImageAlt || item.title)}" loading="lazy">
+            </a>
+            <div>
+              <div class="news-meta-row">
+                ${newsTags([item.categoryLabel, newsDate(item.eventDate), item.reviewStatus])}
+              </div>
+              <h3><a href="news-detail.html?id=${encodeURIComponent(item.id)}">${escapeHtml(item.title)}</a></h3>
+              <p>${escapeHtml(item.summary)}</p>
+              <div class="button-row"><a class="btn" href="news-detail.html?id=${encodeURIComponent(item.id)}">查看详情</a></div>
+            </div>
+          </article>
+        `
+      )
+      .join("");
+  };
+
+  loadData("data/news.json", "news")
+    .then((payload) => {
+      newsItems = Array.isArray(payload.items) ? payload.items : [];
+      newsItems.sort((a, b) => String(b.eventDate || "").localeCompare(String(a.eventDate || "")));
+      renderNewsList();
+    })
+    .catch(() => {
+      newsSummary.textContent = "未能加载新闻科普数据。";
+      newsList.innerHTML = `<div class="empty-state">${localhostHint("news.html")}</div>`;
+    });
+
+  newsFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeNewsCategory = button.getAttribute("data-news-filter") || "all";
+      newsFilterButtons.forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+      renderNewsList();
+    });
+  });
+}
+
+const newsDetailRoot = document.querySelector("#news-detail-root");
+
+if (newsDetailRoot) {
+  const params = new URLSearchParams(window.location.search);
+  const requestedNewsId = params.get("id") || "";
+  const newsDate = (date) => {
+    if (!date) return "日期待补充";
+    const [year, month, day] = date.split("-");
+    return `${year}年${Number(month)}月${Number(day)}日`;
+  };
+  const newsTags = (items = []) =>
+    items.filter(Boolean).map((item) => `<span class="tag">${escapeHtml(item)}</span>`).join("");
+
+  const renderMissingNews = () => {
+    newsDetailRoot.innerHTML = `
+      <section class="page-hero">
+        <div class="container page-title">
+          <div class="breadcrumb"><a href="index.html">首页</a> / <a href="news.html">新闻科普</a> / 中心动态</div>
+          <h1>未找到该中心动态</h1>
+          <p>请返回新闻科普页面查看已发布内容。</p>
+          <div class="button-row"><a class="btn" href="news.html">返回新闻科普</a></div>
+        </div>
+      </section>
+    `;
+  };
+
+  const renderNewsDetail = (item) => {
+    document.title = `${item.title} | 新闻科普 | 华山医院罕见病中心`;
+    const gallery = (item.images || []).filter((src) => src !== item.featuredImage);
+
+    newsDetailRoot.innerHTML = `
+      <section class="page-hero news-article-hero">
+        <div class="container page-title">
+          <div class="breadcrumb"><a href="index.html">首页</a> / <a href="news.html">新闻科普</a> / ${escapeHtml(item.categoryLabel || "中心动态")}</div>
+          <p class="eyebrow">${escapeHtml(item.categoryLabel || "中心动态")}</p>
+          <h1>${escapeHtml(item.title)}</h1>
+          ${item.subtitle ? `<p>${escapeHtml(item.subtitle)}</p>` : ""}
+          <div class="tag-row">${newsTags([newsDate(item.eventDate), item.location, item.reviewStatus])}</div>
+          <figure>
+            <img src="${escapeHtml(item.featuredImage)}" alt="${escapeHtml(item.featuredImageAlt || item.title)}">
+            <figcaption>${escapeHtml(item.featuredImageAlt || item.title)}</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container news-article-layout">
+          <article class="news-article">
+            ${(item.body || []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+            ${
+              gallery.length
+                ? `<div class="news-gallery">
+                    ${gallery
+                      .map(
+                        (src, index) => `
+                          <figure>
+                            <img src="${escapeHtml(src)}" alt="${escapeHtml(item.title)}现场照片 ${index + 1}" loading="lazy">
+                            <figcaption>活动现场 ${index + 1}</figcaption>
+                          </figure>
+                        `
+                      )
+                      .join("")}
+                  </div>`
+                : ""
+            }
+          </article>
+          <aside class="news-sidebar">
+            <div class="panel sticky-panel">
+              <h3>文章信息</h3>
+              <dl class="meta-list">
+                <div><dt>活动日期</dt><dd>${escapeHtml(newsDate(item.eventDate))}</dd></div>
+                <div><dt>发布栏目</dt><dd>${escapeHtml(item.categoryLabel || "中心动态")}</dd></div>
+                <div><dt>地点</dt><dd>${escapeHtml(item.location || "待补充")}</dd></div>
+                <div><dt>来源</dt><dd>${escapeHtml(item.source || "中心供稿")}</dd></div>
+                <div><dt>作者</dt><dd>${escapeHtml(item.author || "待补充")}</dd></div>
+                <div><dt>审核状态</dt><dd>${escapeHtml(item.reviewStatus || "待审核")}</dd></div>
+              </dl>
+              <div class="button-row stacked">
+                <a class="btn" href="news.html">返回新闻科普</a>
+                <a class="btn secondary" href="governance.html">内容审核机制</a>
+              </div>
+            </div>
+            <div class="panel">
+              <h3>关键词</h3>
+              <div class="tag-row">${newsTags(item.keywords || [])}</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    `;
+  };
+
+  loadData("data/news.json", "news")
+    .then((payload) => {
+      const items = Array.isArray(payload.items) ? payload.items : [];
+      const item = items.find((entry) => entry.id === requestedNewsId);
+      if (!item) {
+        renderMissingNews();
+        return;
+      }
+      renderNewsDetail(item);
+    })
+    .catch(() => {
+      newsDetailRoot.innerHTML = `
+        <section class="page-hero">
+          <div class="container page-title">
+            <div class="breadcrumb"><a href="index.html">首页</a> / <a href="news.html">新闻科普</a> / 中心动态</div>
+            <h1>中心动态加载失败</h1>
+            <p>${localhostHint("news-detail.html")}</p>
+          </div>
+        </section>
+      `;
+    });
+}

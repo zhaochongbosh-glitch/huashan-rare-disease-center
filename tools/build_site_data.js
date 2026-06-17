@@ -9,6 +9,7 @@ const sources = {
   mdtDirectory: "data/mdt-directory.json",
   pediatricScope: "data/pediatric-scope.json",
   floorplans: "data/floorplans.json",
+  news: "data/news.json",
   publications: "data/publications.json"
 };
 
