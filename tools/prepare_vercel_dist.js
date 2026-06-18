@@ -2,7 +2,8 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const dist = path.join(root, "dist");
+const outputDirectory = process.env.VERCEL_OUTPUT_DIR || "public";
+const dist = path.join(root, outputDirectory);
 
 const files = [
   "index.html",

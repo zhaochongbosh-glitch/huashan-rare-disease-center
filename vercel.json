@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "buildCommand": "node tools/build_site_data.js && node tools/prepare_vercel_dist.js",
+  "outputDirectory": "public",
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
