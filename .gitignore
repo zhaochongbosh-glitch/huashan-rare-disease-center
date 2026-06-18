@@ -1,2 +1,3 @@
 .server.pid
 generated/
+dist/
