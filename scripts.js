@@ -872,8 +872,8 @@ const initComplianceFooter = () => {
     <div class="compliance-footer" aria-label="备案与分享">
       <div class="record-row">
         <img class="record-emblem" src="assets/gongan.png" alt="公安备案图标" loading="lazy">
-        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">ICP备案号 赣ICP备2024041543号</a>
-        <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=36110002000148" target="_blank" rel="noreferrer">赣公网安备36110002000148号</a>
+        <span>ICP备案号 赣ICP备2024041543号</span>
+        <span>赣公网安备36110002000148号</span>
       </div>
       <div class="share-row" aria-label="分享本页">
         <span class="share-label">分享本页</span>
@@ -885,7 +885,39 @@ const initComplianceFooter = () => {
       </div>
       <p class="record-note">本站提供导诊、分流与科普，正式诊疗服务请以医院官方平台为准。</p>
     </div>
+    <div class="wechat-share-modal" role="dialog" aria-modal="true" aria-label="微信扫码分享" hidden>
+      <div class="wechat-share-dialog">
+        <button class="wechat-share-close" type="button" aria-label="关闭微信分享二维码">×</button>
+        <h2>微信扫码分享</h2>
+        <p>使用微信扫一扫，打开并分享当前页面。</p>
+        <img class="wechat-share-qr" src="" alt="当前页面微信分享二维码">
+      </div>
+    </div>
   `;
+
+  const wechatModal = footerBottom.querySelector(".wechat-share-modal");
+  const wechatQr = footerBottom.querySelector(".wechat-share-qr");
+  const wechatClose = footerBottom.querySelector(".wechat-share-close");
+
+  const openWechatModal = () => {
+    if (!wechatModal || !wechatQr) return;
+    wechatQr.src = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=${encodedUrl}`;
+    wechatModal.hidden = false;
+    wechatClose?.focus();
+  };
+
+  const closeWechatModal = () => {
+    if (!wechatModal) return;
+    wechatModal.hidden = true;
+  };
+
+  wechatClose?.addEventListener("click", closeWechatModal);
+  wechatModal?.addEventListener("click", (event) => {
+    if (event.target === wechatModal) closeWechatModal();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && wechatModal && !wechatModal.hidden) closeWechatModal();
+  });
 
   const copyLink = async () => {
     try {
@@ -925,9 +957,7 @@ const initComplianceFooter = () => {
       }
 
       if (action === "wechat") {
-        await copyLink();
-        setButtonFeedback(button, "已复制");
-        window.alert("链接已复制，可粘贴到微信会话或朋友圈分享。");
+        openWechatModal();
         return;
       }
 

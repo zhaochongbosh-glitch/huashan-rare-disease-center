@@ -1298,7 +1298,8 @@ h1 {
 }
 
 .record-row a,
-.site-footer .record-row a {
+.site-footer .record-row a,
+.record-row span {
   display: inline-flex;
   width: auto;
   margin: 0;
@@ -1359,6 +1360,73 @@ h1 {
   margin: 0;
   color: #8fb0ba;
   font-size: 13px;
+}
+
+.wechat-share-modal[hidden] {
+  display: none;
+}
+
+.wechat-share-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(14, 39, 54, .56);
+}
+
+.wechat-share-dialog {
+  position: relative;
+  width: min(360px, 100%);
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 24px 70px rgba(14, 39, 54, .24);
+  text-align: center;
+}
+
+.wechat-share-dialog h2 {
+  margin-bottom: 8px;
+  font-size: 24px;
+}
+
+.wechat-share-dialog p {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+.wechat-share-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.wechat-share-close:hover,
+.wechat-share-close:focus-visible {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.wechat-share-qr {
+  width: 260px;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 10px;
 }
 
 @media (max-width: 980px) {
