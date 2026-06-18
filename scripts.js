@@ -856,3 +856,97 @@ if (newsDetailRoot) {
       `;
     });
 }
+
+const initComplianceFooter = () => {
+  const footerBottom = document.querySelector(".footer-bottom .container");
+  if (!footerBottom) return;
+
+  const pageUrl = window.location.href;
+  const pageTitle = document.title || "华山医院罕见病中心";
+  const metaDescription = document.querySelector('meta[name="description"]')?.content || "华山医院罕见病中心";
+  const encodedUrl = encodeURIComponent(pageUrl);
+  const encodedTitle = encodeURIComponent(pageTitle);
+  const encodedSummary = encodeURIComponent(metaDescription);
+
+  footerBottom.innerHTML = `
+    <div class="compliance-footer" aria-label="备案与分享">
+      <div class="record-row">
+        <span class="record-emblem" aria-hidden="true">国</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">ICP备案号 赣ICP备2024041543号</a>
+        <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=36110002000148" target="_blank" rel="noreferrer">赣公网安备36110002000148号</a>
+      </div>
+      <div class="share-row" aria-label="分享本页">
+        <span class="share-label">分享本页</span>
+        <button class="share-button" type="button" data-share-action="system">系统分享</button>
+        <button class="share-button" type="button" data-share-action="wechat">微信</button>
+        <button class="share-button" type="button" data-share-action="weibo">微博</button>
+        <button class="share-button" type="button" data-share-action="linkedin">LinkedIn</button>
+        <button class="share-button" type="button" data-share-action="copy">复制链接</button>
+      </div>
+      <p class="record-note">本站提供导诊、分流与科普，正式诊疗服务请以医院官方平台为准。</p>
+    </div>
+  `;
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(pageUrl);
+      return true;
+    } catch {
+      const input = document.createElement("input");
+      input.value = pageUrl;
+      document.body.appendChild(input);
+      input.select();
+      const ok = document.execCommand("copy");
+      input.remove();
+      return ok;
+    }
+  };
+
+  const setButtonFeedback = (button, text) => {
+    const previous = button.textContent;
+    button.textContent = text;
+    window.setTimeout(() => {
+      button.textContent = previous;
+    }, 1800);
+  };
+
+  footerBottom.querySelectorAll("[data-share-action]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const action = button.getAttribute("data-share-action");
+
+      if (action === "system") {
+        if (navigator.share) {
+          await navigator.share({ title: pageTitle, text: metaDescription, url: pageUrl });
+        } else {
+          await copyLink();
+          setButtonFeedback(button, "已复制");
+        }
+        return;
+      }
+
+      if (action === "wechat") {
+        await copyLink();
+        setButtonFeedback(button, "已复制");
+        window.alert("链接已复制，可粘贴到微信会话或朋友圈分享。");
+        return;
+      }
+
+      if (action === "weibo") {
+        window.open(`https://service.weibo.com/share/share.php?url=${encodedUrl}&title=${encodedTitle}`, "_blank", "noopener,noreferrer");
+        return;
+      }
+
+      if (action === "linkedin") {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}&title=${encodedTitle}&summary=${encodedSummary}`, "_blank", "noopener,noreferrer");
+        return;
+      }
+
+      if (action === "copy") {
+        const copied = await copyLink();
+        setButtonFeedback(button, copied ? "已复制" : "复制失败");
+      }
+    });
+  });
+};
+
+initComplianceFooter();
