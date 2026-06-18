@@ -1314,20 +1314,12 @@ h1 {
 }
 
 .record-emblem {
-  display: inline-grid;
-  width: 34px;
+  display: inline-block;
+  width: 30px;
   height: 34px;
-  place-items: center;
+  object-fit: contain;
   flex: 0 0 auto;
-  border: 2px solid rgba(255, 219, 126, .9);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 42%, #f6d070 0 22%, transparent 23%),
-    linear-gradient(145deg, #c7192d, #8f1121);
-  color: #ffe8a3;
-  font-size: 14px;
-  font-weight: 900;
-  box-shadow: 0 5px 14px rgba(0, 0, 0, .18);
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, .18));
 }
 
 .share-row {

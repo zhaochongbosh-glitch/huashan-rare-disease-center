@@ -871,7 +871,7 @@ const initComplianceFooter = () => {
   footerBottom.innerHTML = `
     <div class="compliance-footer" aria-label="备案与分享">
       <div class="record-row">
-        <span class="record-emblem" aria-hidden="true">国</span>
+        <img class="record-emblem" src="assets/gongan.png" alt="公安备案图标" loading="lazy">
         <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">ICP备案号 赣ICP备2024041543号</a>
         <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=36110002000148" target="_blank" rel="noreferrer">赣公网安备36110002000148号</a>
       </div>
