@@ -1,0 +1,4 @@
+generated/
+dist/
+.server.pid
+server.js

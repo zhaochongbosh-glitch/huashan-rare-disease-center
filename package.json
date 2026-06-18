@@ -1,0 +1,9 @@
+{
+  "name": "huashan-rare-disease-center",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node tools/build_site_data.js && node tools/prepare_vercel_dist.js",
+    "start": "node server.js"
+  }
+}
