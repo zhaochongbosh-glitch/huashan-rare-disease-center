@@ -205,6 +205,12 @@ h1 {
   letter-spacing: 0;
 }
 
+.hero-copy h1 {
+  max-width: none;
+  white-space: nowrap;
+  font-size: 58px;
+}
+
 .hero-lede {
   max-width: 620px;
   color: #385b6a;
@@ -1309,6 +1315,10 @@ h1 {
     padding: 56px 20px 42px;
   }
 
+  .hero-copy h1 {
+    font-size: 48px;
+  }
+
   .hero-media {
     min-height: 340px;
   }
@@ -1345,6 +1355,10 @@ h1 {
     font-size: 16px;
   }
 
+  .hero-copy h1 {
+    font-size: 34px;
+  }
+
   .hero-actions,
   .search-row,
   .grid.four,
@@ -1378,6 +1392,86 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .disease-table-wrap {
+    overflow-x: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .disease-table {
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+  }
+
+  .disease-table thead {
+    display: none;
+  }
+
+  .disease-table tbody,
+  .disease-table tr,
+  .disease-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .disease-table tr {
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(20, 49, 66, .06);
+  }
+
+  .disease-table td {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 0;
+  }
+
+  .disease-table td::before {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .disease-table td:nth-child(1)::before { content: "批次"; }
+  .disease-table td:nth-child(2)::before { content: "序号"; }
+  .disease-table td:nth-child(3)::before { content: "中文名"; }
+  .disease-table td:nth-child(4)::before { content: "英文名"; }
+  .disease-table td:nth-child(5)::before { content: "方向"; }
+  .disease-table td:nth-child(6)::before { content: "审核"; }
+
+  .disease-table td:nth-child(7) {
+    display: block;
+    order: -1;
+    padding: 0 0 10px;
+    margin-bottom: 6px;
+    text-align: right;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .disease-table td:nth-child(7)::before {
+    content: "";
+  }
+
+  .disease-table td:nth-child(7) .text-link {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border: 1px solid var(--blue);
+    border-radius: 8px;
+    background: #eef6f8;
+    color: var(--blue);
+    font-weight: 800;
+  }
+
   .detail-section {
     padding: 18px;
   }
@@ -1398,6 +1492,12 @@ h1 {
 
   .news-gallery {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-copy h1 {
+    font-size: 30px;
   }
 }
 
