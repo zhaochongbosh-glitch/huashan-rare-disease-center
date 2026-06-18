@@ -2,7 +2,9 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
-const root = process.cwd();
+const workspaceRoot = process.cwd();
+const publicRoot = path.join(workspaceRoot, "public");
+const root = fs.existsSync(path.join(publicRoot, "index.html")) ? publicRoot : workspaceRoot;
 const port = Number(process.env.PORT || 8000);
 
 const mimeTypes = {
